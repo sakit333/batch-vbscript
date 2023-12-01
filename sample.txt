@@ -1,0 +1,186 @@
+bug.vbs
+
+MsgBox "System need Reboot.... Click on yes", vbQuestion + vbYesNoCancel, "Warning :)"
+MsgBox "Hacking started....", vbQuestion, "Processing....."
+Do
+    result = MsgBox("Data transfering in progress......." & vbCrLf & "To continue data loading click on Yes", vbInformation + vbYesNo, "SAKonLine")
+    If result = vbYes Then
+        Exit Do ' Exit the loop if "Yes" is clicked
+    End If
+    WScript.Sleep 500  ' Sleep for 500 milliseconds (0.5 seconds)
+Loop
+
+-----------------------------------------------------------
+HelloJava.java
+
+public class HelloJava {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+        System.out.println("data transfering is started.......................");
+    }
+}
+------------------------------------------------------------------
+run_java.bat
+
+@echo off
+javac -cp . HelloJava.java
+java HelloJava
+pause
+
+----------------------------------------------------------------------
+javabug.vbs
+
+Set objShell = CreateObject("WScript.Shell")
+
+' Path to your batch file
+batchFilePath = "C:\Users\JSP\Desktop\Project\run_java.bat"
+
+' Execute the batch file
+objShell.Run batchFilePath
+
+Set objShell = Nothing
+
+-----------------------------------------------------------------------------
+
+MsgBox "Hello, welcome to VBScript!"
+=========================================================================
+Dim num
+num = InputBox("Enter a number:")
+If IsNumeric(num) Then
+    If num > 0 Then
+        MsgBox "The number is positive. "
+    ElseIf num < 0 Then
+        MsgBox "The number is negative."
+    Else
+        MsgBox "The number is zero."
+    End If
+Else
+    MsgBox "Please enter a valid number."
+End If
+=========================================================================
+Dim i
+For i = 1 To 10
+    MsgBox "Number: " & i
+Next
+=========================================================================
+
+Dim fso, inputFile, fileContent, line
+
+' Create a File System Object
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+' Open the text file for reading
+Set inputFile = fso.OpenTextFile("C:\Users\Tracker\Desktop\hello\log.bat", 1)
+
+' Read and display each line
+Do Until inputFile.AtEndOfStream
+    line = inputFile.ReadLine
+    MsgBox line
+Loop
+
+' Close the file
+inputFile.Close
+=========================================================================
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run "cmd /k C:\Users\Tracker\Desktop\hello\log.bat", 1, True
+
+==============================================================================
+Option Explicit
+
+Dim objShell, objFSO, objHTTP
+Dim strURL, strFile, strPath, strFileName
+
+' URL of the file to download
+strURL = "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.83/bin/apache-tomcat-9.0.83.tar.gz"
+
+' Path to save the downloaded file
+strPath = "C:\Users\Tracker\Desktop\hello\"
+
+' Name of the downloaded file
+strFileName = "apache-tomcat-9.0.83.tar.gz"
+
+' Create objects
+Set objShell = CreateObject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objHTTP = CreateObject("WinHttp.WinHttpRequest.5.1")
+
+' Download the file
+objHTTP.Open "GET", strURL, False
+objHTTP.Send
+
+If objHTTP.Status = 200 Then
+    If objFSO.FolderExists(strPath) = False Then
+        objFSO.CreateFolder strPath
+    End If
+    
+    Dim objStream
+    Set objStream = CreateObject("ADODB.Stream")
+    objStream.Open
+    objStream.Type = 1 ' Binary
+    objStream.Write objHTTP.ResponseBody
+    objStream.SaveToFile strPath & strFileName, 2 ' Overwrite existing
+    objStream.Close
+    Set objStream = Nothing
+
+    MsgBox "File downloaded successfully!", vbInformation, "Download Complete"
+Else
+    MsgBox "Failed to download the file.", vbExclamation, "Download Error"
+End If
+
+Set objShell = Nothing
+Set objFSO = Nothing
+Set objHTTP = Nothing
+
+=============================================================================================
+
+Option Explicit
+
+Dim objShell, i
+
+Set objShell = CreateObject("WScript.Shell")
+
+' Loop to generate CPU load
+For i = 1 To 1000000
+    ' Perform some computation
+    i = i + 1
+Next
+
+Set objShell = Nothing
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
